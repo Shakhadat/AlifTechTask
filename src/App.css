@@ -1,38 +1,181 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/* body styling */
+
+body{
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+/* header styling */
+.container{
+  width:70%;
+  margin: 0 auto;
+  /* background-color: aquamarine; */
+}
+.toptitle{
+  color: salmon;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
+  font-weight: 100;
+  margin: 1rem 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.siteTitle{
+  color: black;
+  font-size: 40px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  padding: 0;
 }
+/* Serching post */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Serachform{
+  text-align: center;
+  width: 100%;
+  /* background-color: red; */
+  margin: 0 auto;
+  height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.myinput{
+  font-size: 17px;
+  border: 1px solid gray;
+  padding: 1rem;
+  font-size: 14px;
+  color:gray;
+  border-radius: 8px;
+  outline: none;
+  /* padding: 0 1rem; */
+}
+.searchPost{
+  border: 1px solid gray;
+  /* width: 60%;
+  height: 60%; */
+  font-size: 14px;
+  color:gray;
+  border-radius: 8px;
+  outline: none;
+  padding: 1rem;
+}
+.submitpost{
+  /* width: 15%; */
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0 5px;
+  /* height: 60%; */
+  background-color: salmon;
+  color: whitesmoke;
+  font-size: 14px;
+}
+/* pagnation */
+.Title{
+  text-align: center;
+}
+.paginationItem{
+  display: block;
+  color: black;
+  font-size: 14px;
+}
+
+.pagination{
+  margin: 1rem auto;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination>button{
+  border: 1px solid #cccc;
+  border-radius: 3px;
+  background-color: transparent;
+  color: grey;
+  margin: 5px;
+  box-shadow: 3px 3px 5px gray;
+}
+.prev{
+  font-size: 14px;
+}
+.next{
+  font-size: 14px;
+  background-color: yellow;
+}
+.active{
+  background-color: aquamarine;
+  font-size: 14px;
+  color: green;
+}
+/* Card  */
+.card{
+  border: 1px solid #ccc;
+  margin: 1rem;
+}
+.card-header{
+  font-size: 20px;
+}
+.card-text{
+  font-size: 16px;
+  color: grey;
+}
+.col-md-4{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.more{
+  margin: 10px;
+  
+}
+.tags{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 40%;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 auto;
+  /* background-color: red; */
+}
+.tags2{
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  width: 250px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  /* margin: 0 auto; */
+  /* background-color: red; */
+}
+.tags>button{
+  font-size: 14px;
+  color:grey;
+  margin: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: transparent;
+  /* font-family: 'p'; */
+}
+.tags>button:hover{
+  background-color: grey;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btntag{
+  font-size: 14px;
+  color:grey;
+  margin: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  /* font-family: 'p'; */
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btntag:hover{
+  background-color: grey;
+  color: white;
 }

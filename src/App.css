@@ -32,7 +32,7 @@ body{
 }
 /* Serching post */
 
-.Serachform{
+.Searchform{
   text-align: center;
   width: 100%;
   /* background-color: red; */
@@ -167,7 +167,7 @@ body{
 }
 
 .btntag{
-  font-size: 14px;
+  font-size: 40px;
   color:grey;
   margin: 5px;
   padding: 3px;

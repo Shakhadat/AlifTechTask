@@ -1,7 +1,19 @@
 import React, {useState} from "react";
-function Pagination({ data, RenderComponent, title, pageLimit, dataLimit }) {
+
+
+
+
+
+function Pagination({ data, RenderComponent, title, pageLimit, dataLimit, tags, tagFilter}) {
     const [pages] = useState(Math.round(data.length / dataLimit));
     const [currentPage, setCurrentPage] = useState(1);
+    const [componentTag, setComponentTag] = useState("")
+    
+    console.log(tags[parseInt((Math.random()*6))]);
+   
+    console.log("tagFilter", tagFilter)
+
+    console.log("aftertagClicked", tags)
   
     function goToNextPage() {
        // not yet implemented
@@ -31,6 +43,13 @@ function Pagination({ data, RenderComponent, title, pageLimit, dataLimit }) {
        let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
         return new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
     };
+
+    const getTagFromCard = (tag) => {
+      console.log("getTagFromCard",tag);
+      setComponentTag(tag);
+      console.log("componentTag",componentTag);
+    }
+
   
     return (
      <>
@@ -38,11 +57,22 @@ function Pagination({ data, RenderComponent, title, pageLimit, dataLimit }) {
     <h1 className="Title">{title}</h1>
 
     {/* show the posts, 10 posts at a time */}
-    <div className="row">
+ { !tagFilter &&  <div className="row">
       {getPaginatedData().map((d, idx) => (
-        <RenderComponent key={idx} data={d} />
+        <RenderComponent key={idx} data={d} tag={tags[parseInt((Math.random()*6))]} getTagFromCard={getTagFromCard}/>
       ))}
-    </div>
+
+    </div>}
+
+    {tagFilter && <div className="row">
+      {data.map((d, idx)=>{
+        if(tags.includes(componentTag)){
+          return <RenderComponent  key={idx} data={d} tag={tags[parseInt((Math.random()*6))]} getTagFromCard={getTagFromCard}/>
+        }
+      })}
+      
+
+    </div>}
 
     {/* show the pagiantion
         it consists of next and previous buttons

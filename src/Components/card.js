@@ -1,3 +1,4 @@
+
 // import React from "react"
 import React, { useState } from 'react';
 import head from './avatar.jfif';
@@ -6,14 +7,23 @@ import head from './avatar.jfif';
 
 const Card=(props)=>{
 
-    const tags=["html", "css", "json", "js", "c++", "sql"];
+    // const tags=["html", "css", "json", "js", "c++", "sql"];
 
-    console.log(tags[parseInt((Math.random()*6))])
+    // console.log(tags[parseInt((Math.random()*6))])
 
     const [isReadMore, setIsReadMore] = useState(true);
     const toggleReadMore = (e) => { e.preventDefault(); setIsReadMore(!isReadMore)};
 
     const {id, title, body}=props.data;
+    const {tag}=props;
+
+    // 
+
+    React.useEffect(()=>{
+        props.getTagFromCard(tag)
+    },[])
+
+    console.log("tag", tag)
 
     
     
@@ -33,10 +43,11 @@ return(
                       {isReadMore ? '...read more' : ' ...show less'}
                         </span>
                         }    
+                        
                     
                 </p>
            <div className="tags2">
-               <button className='btntag'>{tags[parseInt((Math.random()*6))]}</button>
+               <button className='btntag'>{tag}</button>
                </div>
             
         </div>

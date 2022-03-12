@@ -6,13 +6,17 @@ import SearchTag from './Components/searchpost';
 import Card from './Components/card';
 import Pagination from './Components/Pagenation';
 
-function App() {
 
+const tags=["html", "css", "json", "js", "c++", "sql"];
+
+function App() {
   const [loading, setLoading] = useState(false);
     const [posts, setPosts] = useState([]);
     const[searchTerm, setSearchTerm]=useState("");
     const [searchResults, setSearchResults] = useState([]);
-   
+    const [tagResults, setTagResults] = useState(tags)
+
+    const [tagFilterClicked,setTagFilterClicked] = useState(false)
 
     useEffect(()=>{
         const loadPost = async () => {
@@ -39,28 +43,39 @@ function App() {
         loadPost();
     },[])
 
-
-
-    
-
-   
-
       useEffect(() => {
         const results = posts.filter(post =>
           post.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results);
+        setTagFilterClicked(false)
+
       }, [searchTerm]);
 
-    
+    const setTagFilter = (title) => {
+      console.log(title)
+      const tagResult = tagResults.filter(tag => {
+        if(tag===title){
+          return tag
+        }
+      })
 
+      console.log(tagResult)
+      setTagResults(tagResult);
+      setTagFilterClicked(true);
+    }
+
+
+    
   return (
     <>
       
         <div className="container">
           <Header/>
-          <SearchTag/>
-             <form className='Serachform'>
+          <SearchTag 
+            setTagFilter={setTagFilter}
+          />
+             <form className='Searchform'>
                 <input type="text"
                 className='myinput'
                 placeholder='Serch by title...'
@@ -76,11 +91,14 @@ function App() {
   
         
           {loading?(<h4>Loading...</h4>):
-          <Pagination data={searchResults} 
-           RenderComponent={Card}
+          <Pagination 
+            data={searchResults} 
+            RenderComponent={Card}
            title="Posts"
            pageLimit={5}
            dataLimit={6}
+           tags= {tagResults}
+           tagFilter={tagFilterClicked}
            />
         }))
           </div>
